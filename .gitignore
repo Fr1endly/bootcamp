@@ -9,3 +9,5 @@ logs/
 yarn.lock
 .env
 data/*
+coverage/
+.nyc_output/

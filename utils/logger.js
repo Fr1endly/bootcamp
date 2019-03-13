@@ -23,6 +23,7 @@ const Logger = fileName => {
       logsFormat,
     ),
   });
+
   const fileLogger = new transports.File({
     filename: `logs/combined.log`,
     level: 'debug',
@@ -30,6 +31,7 @@ const Logger = fileName => {
     maxFiles: 2,
     format: combine(timestamp(), align(), label({ label: fileName }), splat(), logsFormat),
   });
+
   const transportsArray = [fileLogger];
   if (process.env.NODE_ENV !== 'test') {
     transportsArray.push(consoleLogger);

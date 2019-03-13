@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "template for future apps",
   "main": "server.js",
-  "scripts": {
-    "start": "babel-node ./server.js",
-    "dev": "nodemon --exec babel-node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Makapoh54/chat-server.git"
@@ -22,6 +17,20 @@
     "url": "https://github.com/Morisf/node-start-kit/issues"
   },
   "homepage": "https://github.com/Morisf/node-start-kit",
+  "scripts": {
+    "start": "babel-node ./server.js",
+    "dev": "nodemon --exec babel-node server.js",
+    "test": "NODE_ENV=test mocha --require @babel/register --recursive ./tests --exit",
+    "coverage": "NODE_ENV=test nyc --reporter=html mocha --require @babel/register --recursive ./tests --exit",
+    "coverage-text": "NODE_ENV=test nyc --reporter=text mocha --require @babel/register --recursive ./tests --exit"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "winston": "^3.1.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
@@ -33,17 +42,12 @@
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.1",
-    "mocha": "^5.2.0",
-    "prettier": "^1.15.3",
+    "mocha": "^6.0.2",
+    "nodemon": "^1.18.10",
+    "nyc": "^13.3.0",
+    "prettier": "^1.16.4",
     "sinon": "^7.2.2",
     "sinon-chai": "^3.3.0",
-    "nodemon": "^1.18.10"
-  },
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "dotenv": "^6.2.0",
-    "express": "^4.16.4",
-    "express-validator": "^5.3.1",
-    "winston": "^3.1.0"
+    "supertest": "^4.0.2"
   }
 }

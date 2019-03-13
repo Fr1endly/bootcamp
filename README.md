@@ -1,12 +1,10 @@
-# chat-server
-Websocket chat server
+# Node express start kit
+Start kit for future apps
 
-To start server: 
-1. Copy .env.template to .env file;
-2. run npm i
-3. run npm start
+- ```yarn``` or ```npm i``` to install dependencies
 
-Server accepts GET requests on http://localhost:8080/api/v1/users/:username/exists URL, to check user existence before connection to chat;
-On user connect/disconnect all network is being notified with new user list;
-Each message is broadcasted accross netwrok;
-User list is maintained in improvised in memory "storage";
+- ```yarn dev``` or ```npm run dev``` to start app in DEV mode
+
+Server accepts GET requests on ```http://localhost:APP_PORT/api/v1/healt-check``` URL, to check that server up and running;
+
+```*APP_PORT*``` - is environment variable from .env

@@ -20,3 +20,5 @@ app.listen(process.env.APP_PORT, 'localhost', () => {
     `App is running at http://localhost:${process.env.APP_PORT} in ${app.get('env')} mode.`,
   );
 });
+
+module.exports = app;
