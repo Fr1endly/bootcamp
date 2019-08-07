@@ -1,25 +1,13 @@
 import mysql from 'mysql';
 import AppError from '../errors/AppError';
 
-const logger = require('../utils/logger')('homeController');
 
-
+const logger = require('../utils/logger')('UserController');
 
 const indexAction = async (req, res, next) => {
   logger.log('info', `healthCheck: ${JSON.stringify(req.params)}`);
-  try {
-    res.status(200).send({
-      code: 200,
-      data: {
-        message: 'Health is OK',
-      },
-    });
-  } catch (err) {
-    next(new AppError(err.message, 400));
-  }
-};
 
-try {
+  try {
     const connection = mysql.createConnection({
       host: process.env.DB_HOST,
       user: process.env.DB_USER,
@@ -29,19 +17,11 @@ try {
     });
     connection.connect();
     connection.query('SELECT * FROM `user` WHERE `ID` = 1', (error, results, fields) => {
-
-      if (error) {
-        console.log(error)
-      }
-
-      if (results) {
-        res.json(results[0])
-      }
-    }
-  }
-   catch (err) {
+      return results;
+    })
+  } catch (err) {
     next(new AppError(err.message, 400));
   }
-
+};
 
 export default indexAction;
