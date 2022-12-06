@@ -25,9 +25,9 @@
     "coverage-text": "NODE_ENV=test nyc --reporter=text mocha --require @babel/register --recursive ./tests --exit"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.1",
     "dotenv": "^6.2.0",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "express-validator": "^5.3.1",
     "mysql": "^2.17.1",
     "winston": "^3.1.0"
